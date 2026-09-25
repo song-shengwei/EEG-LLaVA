@@ -1,0 +1,36 @@
+{
+  "status": "locked",
+  "source_lmdb": "data/processed_lmdb",
+  "source": "LMDB __keys__ mapping",
+  "expected_counts": {
+    "train": 6114,
+    "val": 1343,
+    "test": 1404
+  },
+  "observed_counts": {
+    "train": 6114,
+    "val": 1343,
+    "test": 1404
+  },
+  "split_unit": "eye",
+  "metric_unit": "segment",
+  "pairwise_audit": {
+    "train_val": {
+      "segment_key_overlap": 0,
+      "eye_overlap": 0,
+      "permitted_subject_overlap": 20
+    },
+    "train_test": {
+      "segment_key_overlap": 0,
+      "eye_overlap": 0,
+      "permitted_subject_overlap": 24
+    },
+    "val_test": {
+      "segment_key_overlap": 0,
+      "eye_overlap": 0,
+      "permitted_subject_overlap": 4
+    }
+  },
+  "fold_file": "fold_0.json",
+  "fold_file_sha256": "6e7e239bd1d7cee4cbbb4afe4159b612765ee657686ba30d2c687a7bfa85aff1"
+}

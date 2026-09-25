@@ -1,0 +1,9 @@
+# conda env create -f environment.yml && conda activate eegllava
+name: eegllava
+channels:
+  - defaults
+dependencies:
+  - python=3.12.13
+  - pip
+  - pip:
+      - -r requirements.txt

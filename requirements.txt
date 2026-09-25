@@ -1,0 +1,25 @@
+# EEG-LLaVA — Python dependencies (versions of the environment that produced the paper's results).
+# Python 3.12.13, CUDA 12.4. The default Linux x86-64 wheel of torch==2.6.0 on PyPI is the CUDA 12.4 build.
+#
+#   pip install -r requirements.txt
+#
+# --- model ---
+torch==2.6.0
+transformers==5.5.0
+tokenizers==0.22.2
+safetensors==0.7.0
+huggingface_hub==1.9.0
+einops==0.8.2
+# --- data and evaluation ---
+numpy==2.4.4
+scipy==1.17.1
+scikit-learn==1.8.0
+pandas==3.0.2
+lmdb==2.2.0
+tqdm==4.67.3
+psutil==7.2.2
+# --- preprocessing (raw OpenBCI text -> LMDB) ---
+mne==1.11.0
+openpyxl==3.1.5
+# --- spectral analysis figures ---
+matplotlib==3.10.8

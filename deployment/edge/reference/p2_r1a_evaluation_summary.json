@@ -1,0 +1,56 @@
+{
+  "status": "pass",
+  "aggregation": "arithmetic mean of segment glaucoma probabilities within subject",
+  "threshold_rule": "fixed score >= 0.5",
+  "n_folds": 5,
+  "n_subjects": 95,
+  "n_positive": 58,
+  "n_negative": 37,
+  "metrics": {
+    "auc": 0.8490214352283317,
+    "balanced_accuracy": 0.8007921714818267,
+    "sensitivity": 0.8448275862068966,
+    "specificity": 0.7567567567567568,
+    "confusion_matrix": [
+      [
+        28,
+        9
+      ],
+      [
+        9,
+        49
+      ]
+    ],
+    "threshold": 0.5
+  },
+  "bootstrap_95_ci": {
+    "auc": [
+      0.7613636363636364,
+      0.924119241192412
+    ],
+    "balanced_accuracy": [
+      0.7122854561878952,
+      0.8821556350626119
+    ]
+  },
+  "bootstrap_resamples": 10000,
+  "bootstrap_seed": 20260725,
+  "leakage_checks": {
+    "within_fold_subject_disjoint": true,
+    "within_fold_segment_disjoint": true,
+    "result_keys_equal_declared_test_keys": true,
+    "test_segments_unique_across_folds": true,
+    "test_subjects_unique_across_folds": true
+  },
+  "inputs": {
+    "results_dir": "outputs/protocol2/R1a_seed1234/logs",
+    "splits_dir": "splits/protocol2_v2",
+    "fold_result_files": [
+      "outputs/protocol2/R1a_seed1234/logs/fold_0_result.json",
+      "outputs/protocol2/R1a_seed1234/logs/fold_1_result.json",
+      "outputs/protocol2/R1a_seed1234/logs/fold_2_result.json",
+      "outputs/protocol2/R1a_seed1234/logs/fold_3_result.json",
+      "outputs/protocol2/R1a_seed1234/logs/fold_4_result.json"
+    ]
+  }
+}

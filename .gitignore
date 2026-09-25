@@ -1,0 +1,23 @@
+# data, weights and run outputs are not versioned (see README: Data and weights)
+data/
+pretrained/
+checkpoints/
+outputs/
+# per-script result folders written by baselines and experiments
+baselines/protocol1/results/
+baselines/protocol2/results/
+experiments/head_only_p2/results/
+experiments/topk_generated/decisions/
+experiments/topk_generated/results/
+experiments/topk_generated/ranking.json
+experiments/lora/runs/
+experiments/lora/runs_train_lora/
+# default log/checkpoint folders created by the trainers when --out_dir is not given
+src/H_dual_branch/logs/
+src/H_dual_branch/ckpt/
+src/C_5fold_clean_encoder/logs/
+src/C_5fold_clean_encoder/ckpt/
+__pycache__/
+*.pyc
+*.pth
+*.pt

@@ -1,0 +1,203 @@
+{
+  "status": "complete",
+  "selection_role": "reported final Protocol 1 checkpoint (seed 42), as confirmed by the author",
+  "protocol": "Protocol 1 (Eye-Level Split)",
+  "split_unit": "eye",
+  "metric_unit": "segment",
+  "n_test": 1404,
+  "threshold_rule": "glaucoma iff loss-based probability > 0.5",
+  "nine_fixed_seed_audit": {
+    "role": "separate descriptive fixed-seed stability audit; the manuscript's reported final checkpoint remains seed 42",
+    "seeds": [42, 1234, 3407, 2026, 2027, 2028, 2029, 2030, 2031],
+    "discrete_bacc_metric_definition": "test_auc_discrete: ROC-AUC evaluated on binary generated decisions, which equals balanced accuracy; the archived aggregate mislabeled ordinary test_acc as BAcc",
+    "discrete_bacc": [0.7660858112866011, 0.7110723062468166, 0.6827025908165729, 0.7239036160225983, 0.7327453077342988, 0.7261470151934235, 0.6926441670606905, 0.6984743668054036, 0.7235210916049587],
+    "loss_based_auc": [0.8287284969529952, 0.7824724673738127, 0.7409700900403628, 0.7953768322107881, 0.8043128867098639, 0.7953007331887114, 0.7652121945131591, 0.7726252539170702, 0.802449982649423],
+    "discrete_bacc_mean": 0.7174773636412628,
+    "discrete_bacc_sample_sd": 0.024942405284748736,
+    "loss_based_auc_mean": 0.7874943263951318,
+    "loss_based_auc_sample_sd": 0.02558606233284138,
+    "reported_protocol1_seed": 42,
+    "source": "outputs/seeds/final_fig13_20_aggregate.json"
+  },
+  "m_loss_based": {
+    "n": 1404,
+    "accuracy": 0.7663817663817664,
+    "balanced_accuracy": 0.766095957822878,
+    "sensitivity": 0.8062234794908062,
+    "specificity": 0.7259684361549498,
+    "confusion_matrix": [
+      [
+        506,
+        191
+      ],
+      [
+        137,
+        570
+      ]
+    ],
+    "roc_auc": 0.8287284969529952,
+    "pr_auc": 0.8040142109582197
+  },
+  "m_generated_answer": {
+    "n": 1404,
+    "accuracy": 0.7663817663817664,
+    "balanced_accuracy": 0.7660858112866011,
+    "sensitivity": 0.8076379066478077,
+    "specificity": 0.7245337159253945,
+    "confusion_matrix": [
+      [
+        505,
+        192
+      ],
+      [
+        136,
+        571
+      ]
+    ],
+    "roc_auc_discrete": 0.7660858112866011
+  },
+  "rf_locked_baseline": {
+    "n": 1404,
+    "accuracy": 0.7193732193732194,
+    "balanced_accuracy": 0.7188009229289397,
+    "sensitivity": 0.7991513437057991,
+    "specificity": 0.6384505021520803,
+    "confusion_matrix": [
+      [
+        445,
+        252
+      ],
+      [
+        142,
+        565
+      ]
+    ],
+    "roc_auc": 0.7864113527565094,
+    "pr_auc": 0.7792615916533363
+  },
+  "paired_tests": {
+    "delong_m_loss_vs_rf": {
+      "m_auc": 0.8287284969529952,
+      "rf_auc": 0.7864113527565094,
+      "delta_auc": 0.0423171441964858,
+      "standard_error": 0.011919382722675594,
+      "z": 3.550279840618828,
+      "p_value_two_sided": 0.00038482185574229,
+      "significant_at_0.05": true
+    },
+    "mcnemar_m_generated_vs_rf": {
+      "contingency": {
+        "both_correct": 881,
+        "m_only_correct": 195,
+        "rf_only_correct": 129,
+        "both_wrong": 199
+      },
+      "correction": "uncorrected chi-square (matches archived E13 code)",
+      "chi_square": 13.444444444444445,
+      "p_value_two_sided": 0.00024573277993034104,
+      "significant_at_0.05": true
+    },
+    "bootstrap_auc_difference": {
+      "metric": "auc",
+      "resampling_unit": "segment",
+      "inferential_role": "legacy nominal segment-unit sensitivity only",
+      "not_used_for_cluster_inference": true,
+      "seed": 3407,
+      "requested_replicates": 10000,
+      "valid_replicates": 10000,
+      "delta_95ci": [
+        0.01925423142638368,
+        0.06561509925937344
+      ],
+      "two_sided_sign_probability": 0.0
+    },
+    "bootstrap_generated_bacc_difference": {
+      "metric": "balanced_accuracy",
+      "resampling_unit": "segment",
+      "inferential_role": "legacy nominal segment-unit sensitivity only",
+      "not_used_for_cluster_inference": true,
+      "seed": 3407,
+      "requested_replicates": 10000,
+      "valid_replicates": 10000,
+      "delta_95ci": [
+        0.022213689703845088,
+        0.07181854800457825
+      ],
+      "two_sided_sign_probability": 0.0
+    },
+    "whole_cluster_bootstrap": {
+      "source": "outputs/protocol1/analysis/protocol1_predictions.csv",
+      "method": "sample sorted unique clusters with replacement; concatenate every segment in each sampled cluster; 10000 replicates with numpy.default_rng(42); percentile CI uses NumPy's default linear quantile; empirical two-sided sign-tail probability is 2*min(P(delta<=0),P(delta>=0))",
+      "observed_delta_auc": 0.0423171441964858,
+      "observed_delta_bacc": 0.047284888357661425,
+      "eye": {
+        "definition": "key.rsplit('_', 1)[0]",
+        "n_clusters": 30,
+        "requested_replicates": 10000,
+        "valid_replicates": 10000,
+        "delta_auc": {
+          "bootstrap_mean": 0.04201060829926503,
+          "bootstrap_median": 0.04120952725704613,
+          "percentile_95ci": [-0.02929905, 0.11719453],
+          "two_sided_sign_tail_probability": 0.2532
+        },
+        "delta_bacc": {
+          "bootstrap_mean": 0.0469977713302433,
+          "bootstrap_median": 0.04733537580326669,
+          "percentile_95ci": [-0.01274662, 0.10510495],
+          "two_sided_sign_tail_probability": 0.1216
+        }
+      },
+      "participant_sensitivity": {
+        "definition": "'_'.join(key.split('_')[:3])",
+        "n_clusters": 29,
+        "requested_replicates": 10000,
+        "valid_replicates": 10000,
+        "delta_auc": {
+          "bootstrap_mean": 0.04245975119380266,
+          "bootstrap_median": 0.04111299694017617,
+          "percentile_95ci": [-0.02684104, 0.11839399],
+          "two_sided_sign_tail_probability": 0.2402
+        },
+        "delta_bacc": {
+          "bootstrap_mean": 0.046799771487671615,
+          "bootstrap_median": 0.04675224657290444,
+          "percentile_95ci": [-0.01136292, 0.10497133],
+          "two_sided_sign_tail_probability": 0.1192
+        }
+      }
+    }
+  },
+  "conclusion_audit": {
+    "m_loss_auc_greater_than_rf": true,
+    "m_loss_bacc_greater_than_rf": true,
+    "nominal_segment_delong_significant": true,
+    "nominal_segment_mcnemar_significant": true,
+    "whole_eye_auc_interval_excludes_zero": false,
+    "whole_eye_bacc_interval_excludes_zero": false,
+    "cluster_level_difference_established": false,
+    "manuscript_conclusion_matches_cluster_inference": true
+  },
+  "alignment_audit": {
+    "all_array_lengths": {
+      "keys": 1404,
+      "scores_m": 1404,
+      "labels_loss": 1404,
+      "predictions_discrete": 1404,
+      "labels_discrete": 1404,
+      "labels_delong": 1404,
+      "labels_mcnemar": 1404,
+      "scores_rf": 1404,
+      "predictions_rf": 1404
+    },
+    "test_keys_equal_locked_split": true,
+    "new_and_archived_labels_identical": true,
+    "rf_threshold_predictions_equal_archived_discrete": true
+  },
+  "source_sha256": {
+    "run_result": "778f1a1284cb3771ddd102d93405e9a5496a3b84b3eb7bc54c612f673f26086b",
+    "locked_split": "6e7e239bd1d7cee4cbbb4afe4159b612765ee657686ba30d2c687a7bfa85aff1",
+    "archived_delong": "8af4bc3dd518d2ffc344769af9aa42a6eedf9b35b3e833ef8fd80b11495b68f7",
+    "archived_mcnemar": "eac7ea206417791b84b72327171576083bb801c1155bdfd78ce4feb159518e5e"
+  }
+}

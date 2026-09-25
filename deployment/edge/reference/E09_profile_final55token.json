@@ -1,0 +1,40 @@
+{
+  "_schema": "E09 profile schema of the major submission, so regen_fig17.py runs unmodified",
+  "_source": "outputs/profile/r1a_profile_results.json",
+  "_mapping": {
+    "encoder": "cbramod_encoder + aux_transformer + spectral_branch (the three EEG branches of the final 55-token model); std combined in quadrature",
+    "projector": "cbramod_projector + aux_projector",
+    "note": "encoder + projector = 11.495 ms; the directly measured combined_encode_eeg is 11.530 ms, the 0.035 ms difference is concatenation overhead",
+    "full_forward": "single_template_forward, measured",
+    "loss_based_measured_ms": 94.40485190716572,
+    "generate_20tok": "generate_20_tokens, measured"
+  },
+  "model_load_time_s": 6.762796899012756,
+  "component_latency_bs1": {
+    "encoder": {
+      "mean_ms": 11.303034410229884,
+      "std_ms": 0.08072410578445949
+    },
+    "projector": {
+      "mean_ms": 0.1922987896250561,
+      "std_ms": 0.007967713591532874
+    },
+    "full_forward": {
+      "mean_ms": 47.11095109814778,
+      "std_ms": 0.28340881192797984
+    },
+    "generate_20tok": {
+      "mean_ms": 330.24147080723196,
+      "std_ms": 1.4058784226661452
+    },
+    "loss_based_two_passes": {
+      "mean_ms": 94.40485190716572,
+      "std_ms": 1.052301175869976
+    }
+  },
+  "memory": {
+    "forward_peak_mb": 1304.57958984375,
+    "generate_peak_mb": 1196.51806640625,
+    "model_loaded_mb": 1177.029296875
+  }
+}

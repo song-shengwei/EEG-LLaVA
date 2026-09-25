@@ -1,0 +1,132 @@
+{
+  "status": "complete",
+  "created_utc": "2026-08-06T12:19:14.105891+00:00",
+  "purpose": "paper system-profile synchronization only",
+  "selection_or_training_performed": false,
+  "architecture": {
+    "core_cbramod_tokens": 30,
+    "aux_transformer_tokens": 21,
+    "spectral_tokens": 4,
+    "total_eeg_tokens": 55,
+    "cross_model_vote_or_ensemble": false
+  },
+  "device": {
+    "name": "NVIDIA GeForce RTX 4090",
+    "visible_cuda_index": 0,
+    "capability": [
+      8,
+      9
+    ]
+  },
+  "software": {
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4"
+  },
+  "checkpoint": {
+    "path": "outputs/protocol2/R1a_seed1234/ckpt/fold_0_best.pth",
+    "sha256": "0032c73c792fbc025364ed28152067629770715bdf05db586f3d6e1f2b0fcaea",
+    "manifest": {
+      "checkpoint": "fold_0_best.pth",
+      "sha256": "0032c73c792fbc025364ed28152067629770715bdf05db586f3d6e1f2b0fcaea",
+      "checkpoint_format": "dual_branch_complete_v1",
+      "fold": 0,
+      "state_dict_keys": 578,
+      "contains_spectral_state": true,
+      "contains_aux_encoder_state": true,
+      "contains_eeg_encoder_state": true,
+      "selection_protocol": "r1a_validation_subject_bacc_auc_floor",
+      "selection_sidecar": "fold_0_best.pth.r1a_selection.json"
+    },
+    "fold_used_for_architecture_profile": 0
+  },
+  "sample_key": "P_0604_P5_l_OpenBCISession_2025-06-04_15-43-18_0",
+  "model_load_time_s": 6.762796899012756,
+  "memory": {
+    "model_loaded_mb": 1177.029296875,
+    "model_reserved_mb": 1344.0,
+    "cpu_process_mb": 2172.07421875,
+    "single_template_forward_peak_mb": 1304.57958984375,
+    "loss_based_score_peak_mb": 1304.57958984375,
+    "generate_20_tokens_peak_mb": 1196.51806640625
+  },
+  "component_latency_bs1": {
+    "cbramod_encoder": {
+      "mean_ms": 8.640345200547017,
+      "std_ms": 0.041224567617043774,
+      "min_ms": 8.60572000965476,
+      "max_ms": 8.760227006860077,
+      "repeats": 20,
+      "warmup": 5
+    },
+    "cbramod_projector": {
+      "mean_ms": 0.09792694181669503,
+      "std_ms": 0.00583844872607724,
+      "min_ms": 0.09392097126692533,
+      "max_ms": 0.11310697300359607,
+      "repeats": 20,
+      "warmup": 5
+    },
+    "aux_transformer": {
+      "mean_ms": 1.0553218977293,
+      "std_ms": 0.043547437693589444,
+      "min_ms": 1.0077669867314398,
+      "max_ms": 1.1600900324992836,
+      "repeats": 20,
+      "warmup": 5
+    },
+    "aux_projector": {
+      "mean_ms": 0.09437184780836105,
+      "std_ms": 0.00542189785496414,
+      "min_ms": 0.09094597771763802,
+      "max_ms": 0.10977900819852948,
+      "repeats": 20,
+      "warmup": 5
+    },
+    "spectral_branch": {
+      "mean_ms": 1.607367311953567,
+      "std_ms": 0.05404199246707451,
+      "min_ms": 1.549420994706452,
+      "max_ms": 1.6888210084289312,
+      "repeats": 20,
+      "warmup": 5
+    },
+    "combined_encode_eeg": {
+      "mean_ms": 11.529966504895128,
+      "std_ms": 0.2039714642615572,
+      "min_ms": 11.40289701288566,
+      "max_ms": 12.15110399061814,
+      "repeats": 20,
+      "warmup": 5
+    },
+    "single_template_forward": {
+      "mean_ms": 47.11095109814778,
+      "std_ms": 0.28340881192797984,
+      "min_ms": 46.77568899933249,
+      "max_ms": 47.60656598955393,
+      "repeats": 10,
+      "warmup": 2
+    },
+    "loss_based_score_two_passes": {
+      "mean_ms": 94.40485190716572,
+      "std_ms": 1.052301175869976,
+      "min_ms": 93.32788997562602,
+      "max_ms": 96.0234579979442,
+      "repeats": 10,
+      "warmup": 2
+    },
+    "generate_20_tokens": {
+      "mean_ms": 330.24147080723196,
+      "std_ms": 1.4058784226661452,
+      "min_ms": 329.02815705165267,
+      "max_ms": 332.5925300014205,
+      "repeats": 5,
+      "warmup": 2
+    }
+  },
+  "derived": {
+    "loss_based_samples_per_second": 10.592675903812268,
+    "maximum_profiled_peak_mb": 1304.57958984375,
+    "fits_12gb_consumer_gpu": true
+  },
+  "script_sha256": "6d6e06c73abe24135cc1e10c51e6b48113fa2b0a63116de2769ea935ced7da73"
+}
